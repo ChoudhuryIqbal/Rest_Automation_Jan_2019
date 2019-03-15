@@ -2,11 +2,14 @@ package test.api.automation;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import com.restAssured.TestingWorld.rest_assured.BaseClass;
+
 import static io.restassured.RestAssured.*;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
-public class TC_001_GetMethod {
+public class TC_001_GetMethod extends BaseClass{
 
 	@Test
 	public void tc_001_getMethod_validation() {
@@ -38,7 +41,6 @@ public class TC_001_GetMethod {
 		System.out.println(response.asString());
 		System.out.println("Status response code \t \t" + response.getStatusCode());
 		Assert.assertEquals(200, response.getStatusCode());
-
 		when().get("http://services.groupkt.com/state/search/IND?text=pradesh").then().statusCode(200);
 	}
 
